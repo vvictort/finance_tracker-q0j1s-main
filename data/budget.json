@@ -1,5 +1,9 @@
 {
     "totalBudget": 5000,
-    "expenses": [],
+    "expenses": [{
+        "date": "Money",
+        "amount": 100,
+        "category": "2005-02-18"
+    }],
     "goals": []
 }

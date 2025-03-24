@@ -9,7 +9,7 @@ public class ExpenseManagementTab extends BaseTab {
     private BudgetApp budgetApp;
     private JTabbedPane tabbedPane;
 
-    // EFFECTS: constructs the Expense Management tab
+    // EFFECTS: constructor
     public ExpenseManagementTab(BudgetApp budgetApp, JTabbedPane tabbedPane) {
         super();
         this.budgetApp = budgetApp;
@@ -21,10 +21,9 @@ public class ExpenseManagementTab extends BaseTab {
     protected void initializeComponents() {
         setLayout(new GridLayout(3, 1, 10, 10)); // 3 rows, 1 column, with spacing
         setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createLineBorder(new Color(200, 200, 200)), // Light gray border
-                "Expense Management", TitledBorder.LEFT, TitledBorder.TOP, // Title alignment
-                new Font("Serif", Font.BOLD, 14), new Color(0, 123, 255) // Title font and color
-        ));
+                BorderFactory.createLineBorder(new Color(200, 200, 200)),
+                "Expense Management", TitledBorder.LEFT, TitledBorder.TOP,
+                new Font("Serif", Font.BOLD, 14), new Color(0, 123, 255)));
 
         // Add buttons
         add(createButton("Add expenses", "AddExpense"));
@@ -38,9 +37,9 @@ public class ExpenseManagementTab extends BaseTab {
         button.setActionCommand(actionCommand);
         button.setFont(new Font("Serif", Font.BOLD, 12));
         button.setBackground(new Color(0, 123, 255)); // Blue background
-        button.setForeground(Color.WHITE); // White text
+        button.setForeground(Color.WHITE);
         button.setFocusPainted(false);
-        button.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Padding
+        button.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         button.addActionListener(e -> handleButtonAction(actionCommand, text)); // Handle button action
         return button;
     }
@@ -53,7 +52,7 @@ public class ExpenseManagementTab extends BaseTab {
                 createInputTab(actionCommand, title);
                 break;
             case "PrintExpense":
-                String expenses = budgetApp.printExpense(); // Ensure this method returns a String
+                String expenses = budgetApp.printExpense();
                 JOptionPane.showMessageDialog(this, expenses, "Expenses", JOptionPane.INFORMATION_MESSAGE);
                 break;
             default:
@@ -67,7 +66,7 @@ public class ExpenseManagementTab extends BaseTab {
         // Create a new panel for the tab
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new GridLayout(4, 2, 10, 10)); // 4 rows, 2 columns for inputs
-        inputPanel.setBackground(new Color(240, 240, 240)); // Light gray background
+        inputPanel.setBackground(new Color(240, 240, 240));
 
         // Add input fields
         JLabel amountLabel = new JLabel("Amount:");
@@ -90,7 +89,7 @@ public class ExpenseManagementTab extends BaseTab {
         JButton doneButton = new JButton("Done");
         doneButton.setFont(new Font("Serif", Font.BOLD, 14));
         doneButton.setBackground(new Color(0, 123, 255)); // Blue background
-        doneButton.setForeground(Color.WHITE); // White text
+        doneButton.setForeground(Color.WHITE);
         doneButton.setFocusPainted(false);
         doneButton.addActionListener(e -> {
             String amountInput = amountField.getText();
@@ -111,7 +110,6 @@ public class ExpenseManagementTab extends BaseTab {
         inputPanel.add(new JLabel()); // Empty cell for alignment
         inputPanel.add(doneButton);
 
-        // Add the new tab to the parent tabbed pane
         tabbedPane.addTab(title + " Input", inputPanel);
         tabbedPane.setSelectedComponent(inputPanel); // Switch to the new tab
     }

@@ -11,7 +11,7 @@ public class MainPageFrame extends JFrame implements ActionListener {
     private JLabel label;
     private JButton button;
 
-    // EFFECTS: constructs a label changer
+    // EFFECTS: constructor
     public MainPageFrame() {
         super("Budget App");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -68,7 +68,7 @@ public class MainPageFrame extends JFrame implements ActionListener {
         new BudgetAppFrame();
     }
 
-    // EFFECTS: starts the application
+    // EFFECTS: starts the application (for testing purposes)
     public static void main(String[] args) {
         // new AuthenticateUser();
         new MainPageFrame();

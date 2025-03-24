@@ -4,15 +4,15 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
+import user.BudgetApp;
 
 public class SaveLoadTab extends BaseTab {
-    private ActionListener actionListener;
+    private BudgetApp budgetApp;
 
     // EFFECTS: constructs the Save/Load tab
-    public SaveLoadTab(ActionListener actionListener) {
+    public SaveLoadTab(BudgetApp budgetApp) {
         super();
-        this.actionListener = actionListener;
+        this.budgetApp = budgetApp;
         initializeComponents();
     }
 
@@ -26,8 +26,8 @@ public class SaveLoadTab extends BaseTab {
         ));
 
         // Add buttons
-        add(createButton("Save tracker to file", "s"));
-        add(createButton("Load tracker from file", "l"));
+        add(createButton("Save tracker to file", "Save"));
+        add(createButton("Load tracker from file", "Load"));
     }
 
     // EFFECTS: creates a button with the given text and action command
@@ -39,7 +39,30 @@ public class SaveLoadTab extends BaseTab {
         button.setForeground(Color.WHITE); // White text
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Padding
-        button.addActionListener(actionListener); // Delegate action to the provided ActionListener
+        button.addActionListener(e -> handleButtonAction(actionCommand)); // Handle button actions
         return button;
+    }
+
+    // EFFECTS: handles button actions for saving and loading
+    private void handleButtonAction(String actionCommand) {
+        if (actionCommand.equals("Save")) {
+            try {
+                budgetApp.saveTracker();
+                JOptionPane.showMessageDialog(this, "Tracker saved successfully!", "Save",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Failed to save tracker: " + e.getMessage(), "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (actionCommand.equals("Load")) {
+            try {
+                budgetApp.loadTracker();
+                JOptionPane.showMessageDialog(this, "Tracker loaded successfully!", "Load",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Failed to load tracker: " + e.getMessage(), "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 }

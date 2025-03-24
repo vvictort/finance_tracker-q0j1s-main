@@ -5,9 +5,8 @@ import java.awt.*;
 
 public abstract class BaseTab extends JPanel {
 
-    // EFFECTS: constructs a base tab
+    // EFFECTS: constructor
     public BaseTab() {
-        // initializaComponents();
         setBackground(new Color(240, 240, 240)); // Light gray background
     }
 

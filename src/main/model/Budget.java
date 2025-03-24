@@ -37,10 +37,13 @@ public class Budget {
         return totalBudget - getTotalExpenses();
     }
 
-    public void checkGoalProgress() {
-        goalManager.printGoal(); // Print goals
-        System.out.println("Total Expenses: " + getTotalExpenses());
-        System.out.println("Remaining Budget: " + getRemainingBudget());
+    public String checkGoalProgress() {
+        StringBuilder progress = new StringBuilder();
+        progress.append("=== Goal Progress ===\n");
+        progress.append(goalManager.printGoal()).append("\n");
+        progress.append("Total Expenses: ").append(getTotalExpenses()).append("\n");
+        progress.append("Remaining Budget: ").append(getRemainingBudget()).append("\n");
+        return progress.toString();
     }
 
     public String printBudgetOverview() {
