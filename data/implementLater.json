@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "username": "john_doe",
+      "goals": [
+        {
+          "goalValue": 5000,
+          "type": "Savings",
+          "completed": false
+        },
+        {
+          "goalValue": 10000,
+          "type": "Investment",
+          "completed": true
+        }
+      ],
+      "expenses": [
+        {
+          "amount": 200,
+          "category": "Groceries",
+          "date": "2024-03-01"
+        },
+        {
+          "amount": 50,
+          "category": "Entertainment",
+          "date": "2024-03-03"
+        }
+      ]
+    },
+    {
+      "username": "jane_smith",
+      "goals": [
+        {
+          "goalValue": 3000,
+          "type": "Travel",
+          "completed": false
+        }
+      ],
+      "expenses": [
+        {
+          "amount": 120,
+          "category": "Dining",
+          "date": "2024-02-28"
+        }
+      ]
+    }
+  ]
+}
